@@ -1,3 +1,10 @@
+#Settings
+#ERROR_REPORTING="E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED"
+ERROR_REPORTING="E_ALL"
+ERROR_LOG="/var/log/php_errors.log"
+DISPLAY_ERRORS="On"
+dbuser="vagrant"
+dbpass="vagrant"
 #Password for Mysql: vagrant
 #User: vagrant
 
@@ -12,28 +19,27 @@ sudo apt-get install php5-xdebug
 ##Create www folder and link to var/www
 if [ ! -h /var/www ];
 then
-    mkdir /vagrant/public
-    rm -rf /var/www
-    ln -s /vagrant/public /var/www
-    a2enmod rewrite
-    sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/default
-    service apache2 restart
+    #sudo mkdir /vagrant/public -m 0777
+    #sudo chown -R /vagrant/public
+    sudo rm -rf /var/www
+    sudo ln -s /vagrant /var/www
+    sudo a2enmod rewrite
+    sudo sed -i '/AllowOverride None/c AllowOverride All' /etc/apache2/sites-available/default
+    sudo service apache2 restart
 fi
 
-##Set error reporting
-#ERROR_REPORTING="E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED"
-ERROR_REPORTING="E_ALL"
-ERROR_LOG="/var/log/php_errors.log"
-#CREATE LOG FILE
+##Set error reporting and log files
 sed -i "s/error_reporting = .*/error_reporting = ${ERROR_REPORTING}/" /etc/php5/apache2/php.ini
 touch $ERROR_LOG
 chown apache:apache $ERROR_LOG
+#Display errors
+sed -i "s/display_errors = .*/display_errors = ${DISPLAY_ERRORS}/" /etc/php5/apache2/php.ini
 #The ; in the next line is because the line is commented by default on RHEL5
 sed -i "s/;error_log = .*/error_log = ${ERROR_LOG}/" /etc/php5/apache2/php.ini
 
 
 ##Add Mysql user
-mysql -uroot -pvagrant -e "CREATE USER 'vagrant'@'%' IDENTIFIED BY 'vagrant'; GRANT ALL PRIVILEGES ON *.* TO 'vagrant'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;"
+mysql -uroot -pvagrant -e "CREATE USER '$dbuser'@'%' IDENTIFIED BY '$dbpass'; GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;"
 sudo sed -i "s/bind-address.*/#bind-address = 127.0.0.1/" /etc/mysql/my.cnf
 sudo service mysql restart
 
