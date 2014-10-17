@@ -48,5 +48,9 @@ sed -i "$ i\ ; xdebug:" /etc/php5/apache2/php.ini
 sed -i "$ i\xdebug.remote_connect_back=on" /etc/php5/apache2/php.ini
 sed -i "$ i\xdebug.remote_enable=on" /etc/php5/apache2/php.ini
 
+##Install PHPMyAdmin
+#sudo apt-get install phpmyadmin -y
+#sed -i "$ i\Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf
+
 ##Restart Apache
 sudo service apache2 restart
