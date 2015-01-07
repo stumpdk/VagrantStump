@@ -10,7 +10,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "precise32"
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
