@@ -41,6 +41,7 @@ sed -i "s/;error_log = .*/error_log = ${ERROR_LOG}/" /etc/php5/apache2/php.ini
 ##Add Mysql user
 mysql -uroot -pvagrant -e "CREATE USER '$dbuser'@'%' IDENTIFIED BY '$dbpass'; GRANT ALL PRIVILEGES ON *.* TO '$dbuser'@'%' WITH GRANT OPTION; FLUSH PRIVILEGES;"
 sudo sed -i "s/bind-address.*/#bind-address = 127.0.0.1/" /etc/mysql/my.cnf
+sudo sed -i "$ i\  lower_case_table_names   = 1" /etc/mysql/my.cnf
 sudo service mysql restart
 
 ##Install PHPUnit
@@ -50,9 +51,9 @@ sudo mv phpunit.phar /usr/local/bin/phpunit
 
 ##Add xdebug
 #sed -i "$ \i xdebug.remote_autostart=on" /etc/php5/apache2/php.ini
-sed -i "$ i\ ; xdebug:" /etc/php5/apache2/php.ini
-sed -i "$ i\xdebug.remote_connect_back=on" /etc/php5/apache2/php.ini
-sed -i "$ i\xdebug.remote_enable=on" /etc/php5/apache2/php.ini
+sudo sed -i "$ i\ ; xdebug:" /etc/php5/apache2/php.ini
+sudo sed -i "$ i\xdebug.remote_connect_back=on" /etc/php5/apache2/php.ini
+sudo sed -i "$ i\xdebug.remote_enable=on" /etc/php5/apache2/php.ini
 
 ##Install PHPMyAdmin
 #sudo apt-get install phpmyadmin -y
