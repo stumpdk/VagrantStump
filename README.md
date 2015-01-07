@@ -10,11 +10,15 @@ Xdebug
 
 All set up and ready for outside connections (Mysql and Xdebug). Which is of cause NOT safe.
 
+Based on Ubuntu Trusty 64 bit.
+If it isn't added to Vagrant:
+    vagrant box add ubuntu/trusty64
+
 Database user:
-vagrant/vagrant
+    vagrant/vagrant
 
 When using XDEBUG, path mapping is necessary in NetBeans:
-"/vagrant/" : "D:/YOURPROJECT/webroot"
+    "/vagrant/" : "D:/YOURPROJECT/webroot"
 
 WHEN SET UP, THIS IS WHAT HAVE TO BE DONE:
 
