@@ -1,26 +1,31 @@
 Ultimate Vagrant Box.
 Included:
-Ubuntu
-Apache
-PHP5
-Mysql
+Ubuntu (12.04)
+Apache (2.2.22)
+PHP5 (5.5)
+Mysql (5.5)
 
 PHPUnit
 Xdebug
 
 All set up and ready for outside connections (Mysql and Xdebug). Which is of cause NOT safe.
 
-Database user:
+Default database and SSH user:
 vagrant/vagrant
+
+In the provision.sh, the follow options are available:
+    DBUSER and DBPASS: Settings for a new user (other than vagrant/vagrant)
+    ERROR_REPORTING: Default PHP error reporting
+    ERROR_LOG: Placement of PHP error log
+    DATABASE_SCRIPT_FILE: If given, the database will run this script after installation
+    DISPLAY_ERRORS: Whether or not PHP should display errors
+
 
 When using XDEBUG, path mapping is necessary in NetBeans:
 "/vagrant/" : "D:/YOURPROJECT/webroot"
 
-WHEN SET UP, THIS IS WHAT HAVE TO BE DONE:
-
+To do when setting up a new server:
     * Change the share folder to the wanted one (default is "./"). To change it, alter line 43 in the vagrant file.
-    * Install PHPMyAdmin if wanted. This is done with the following commands:
+    * Install PHPMyAdmin if needed. This is done with the following commands:
         sudo apt-get install phpmyadmin -y
         sudo sed -i "$ i\Include /etc/phpmyadmin/apache.conf" /etc/apache2/apache2.conf
-    * Create a database user if vagrant/vagrant isn't good enough
-    * Import database(s), if needed
