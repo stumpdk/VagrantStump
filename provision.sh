@@ -38,10 +38,10 @@ sudo add-apt-repository -y ppa:ondrej/php5
 sudo apt-get update -qq
 echo "*** Installing server software"
 ##Installing MySQL, Apache2 and PHP
-sudo apt-get -y -qq install apache2 mysql-server-5.5 php-pear php5-mysql php5
+sudo apt-get -y -qq install apache2 mysql-server-5.5 php-pear php5-mysql php5-mysqlnd php5 php5-xdebug
 echo "*** Installing XDebug"
 #sudo pecl install xdebug
-sudo apt-get install php5-xdebug -qq
+#sudo apt-get install php5-xdebug -qq
 
 ##
 # Apache default www folder
