@@ -6,9 +6,9 @@ PHP5 (5.5)
 Mysql (5.5)
 
 PHPUnit
-Xdebug
+XDebug
 
-All set up and ready for outside connections (Mysql and Xdebug). Which is of cause NOT safe.
+All set up and ready for outside connections (MySQL and XDebug). Which is of cause NOT safe.
 
 Default database and SSH user: vagrant/vagrant
 
