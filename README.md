@@ -1,7 +1,7 @@
 Ultimate Vagrant Box.
 Included:
 Ubuntu (12.04)
-Apache (2.2.22)
+Apache (2.4)
 PHP5 (5.5)
 Mysql (5.5)
 
@@ -10,8 +10,9 @@ Xdebug
 
 All set up and ready for outside connections (Mysql and Xdebug). Which is of cause NOT safe.
 
-Default database and SSH user:
-vagrant/vagrant
+Default database and SSH user: vagrant/vagrant
+
+MySQL root password: vagrant
 
 In the provision.sh, the follow options are available:
     DBUSER and DBPASS: Settings for a new user (other than vagrant/vagrant)

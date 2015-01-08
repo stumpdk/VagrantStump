@@ -3,8 +3,8 @@
 ##
 
 #Secondary database user info (primary is vagrant/vagrant)
-DBUSER="broadsword"
-DBPASS="broadsword"
+DBUSER="vagrant"
+DBPASS="vagrant"
 #ERROR_REPORTING="E_ALL & ~E_NOTICE & ~E_STRICT & ~E_DEPRECATED"
 ERROR_REPORTING="E_ALL"
 #File for error log
