@@ -113,6 +113,10 @@ wget -q https://phar.phpunit.de/phpunit.phar
 chmod +x phpunit.phar
 sudo mv phpunit.phar /usr/local/bin/phpunit
 
+##Install PHP intl
+echo "*** Installing PHP intl"
+sudo apt-get install php5-intl -y -qq
+
 ##
 # XDebug
 ##
