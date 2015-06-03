@@ -123,7 +123,9 @@ sudo apt-get install curl -y -qq
 
 ##Install composer
 echo "*** Installing composer"
-sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin
+cd /usr/local/bin
+sudo curl -sS https://getcomposer.org/installer | sudo php
+sudo mv composer.phar /usr/local/bin/composer
 
 ##
 # XDebug
