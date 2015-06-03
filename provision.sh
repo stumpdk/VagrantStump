@@ -155,5 +155,5 @@ sudo apt-get install php5-mysqlnd -y -qq
 # Ready to go
 ##
 
-##Restart Apache
-sudo service apache2 restart
+##Shut down
+sudo shutdown now
