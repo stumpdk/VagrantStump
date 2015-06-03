@@ -117,6 +117,14 @@ sudo mv phpunit.phar /usr/local/bin/phpunit
 echo "*** Installing PHP intl"
 sudo apt-get install php5-intl -y -qq
 
+##Install curl
+echo "*** Installing curl"
+sudo apt-get install curl -y -qq
+
+##Install composer
+echo "*** Installing composer"
+sudo curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin
+
 ##
 # XDebug
 ##
